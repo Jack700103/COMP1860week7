@@ -1,35 +1,29 @@
-/**
- * 7-Segment Decoder for Segment 'c'
- * Student ID: 201860766
- * Group: 33
- * Group Code: 5423106
- * 
- * Inputs: A, B, C, D (4-bit binary input, A=LSB, D=MSB)
- * Output: c (segment control, 1=on, 0=off)
- * 
- * Truth Table:
- * D C B A | Hex | c
- * --------|-----|---
- * 0 0 0 0 |  0  | 1
- * 0 0 0 1 |  1  | 1
- * 0 0 1 0 |  2  | 0
- * 0 0 1 1 |  3  | 1
- * 0 1 0 0 |  4  | 1
- * 0 1 0 1 |  5  | 1
- * 0 1 1 0 |  6  | 1
- * 0 1 1 1 |  7  | 1
- * 1 0 0 0 |  8  | 1
- * 1 0 0 1 |  9  | 1
- * 1 0 1 0 |  A  | 1
- * 1 0 1 1 |  B  | 1
- * 1 1 0 0 |  C  | 0
- * 1 1 0 1 |  D  | 1
- * 1 1 1 0 |  E  | 0
- * 1 1 1 1 |  F  | 0
- * 
- * Boolean Equation:
- * c = ~[ (¬D ∧ ¬C ∧ B ∧ ¬A) ∨ (D ∧ C ∧ (B ∨ ¬A)) ]
- */
+ Inputs: A, B, C, D (4-bit binary input, A=LSB, D=MSB)
+ Output: c (segment control, 1=on, 0=off)
+ 
+ Truth Table:
+ D C B A | Hex | c
+ --------|-----|---
+ 0 0 0 0 |  0  | 1
+ 0 0 0 1 |  1  | 1
+ 0 0 1 0 |  2  | 0
+ 0 0 1 1 |  3  | 1
+ 0 1 0 0 |  4  | 1
+ 0 1 0 1 |  5  | 1
+ 0 1 1 0 |  6  | 1
+ 0 1 1 1 |  7  | 1
+ 1 0 0 0 |  8  | 1
+ 1 0 0 1 |  9  | 1
+ 1 0 1 0 |  A  | 1
+ 1 0 1 1 |  B  | 1
+ 1 1 0 0 |  C  | 0
+ 1 1 0 1 |  D  | 1
+ 1 1 1 0 |  E  | 0
+ 1 1 1 1 |  F  | 0
+ 
+ Boolean Equation:
+ c = ~[ (¬D ∧ ¬C ∧ B ∧ ¬A) ∨ (D ∧ C ∧ (B ∨ ¬A)) ]
+ 
 
 CHIP DecoderSegment201860766 {
     IN A, B, C, D;
