@@ -24,6 +24,13 @@
  Boolean Equation:
  c = ~[ (¬D ∧ ¬C ∧ B ∧ ¬A) ∨ (D ∧ C ∧ (B ∨ ¬A)) ]
  
+ \ CD  00  01  11  10
+AB \
+00     1   1   1   0
+01     1   1   1   0
+11     1   1   1   1
+10     1   1   1   1
+ 
 
 CHIP DecoderSegment201860766 {
     IN A, B, C, D;
