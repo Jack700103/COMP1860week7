@@ -62,3 +62,38 @@ CHIP DecoderSegment201860766 {
 
     Not(in=orTerms, out=c);
 }
+
+
+
+
+/**
+ * Complete 7-Segment Decoder
+ * Group: 33
+ * 
+ * Inputs: A, B, C, D (4-bit binary input, A=LSB, D=MSB)
+ * Outputs: a, b, c, d, e, f, g (all segments)
+ * 
+ * This chip combines all segment decoders for the 7-segment display.
+ * Each segment is implemented by a separate decoder chip.
+ */
+
+CHIP Decoder33 {
+    IN A, B, C, D;
+    OUT a, b, c, d, e, f, g;
+    
+    PARTS:
+
+    DecoderSegmentA(a=A, b=B, c=C, d=D, out=a);
+    
+    DecoderSegmentB(a=A, b=B, c=C, d=D, out=b);
+    
+    DecoderSegment201860766(A=A, B=B, C=C, D=D, c=c);
+    
+    DecoderSegmentD(a=A, b=B, c=C, d=D, out=d);
+    
+    DecoderSegmentE(a=A, b=B, c=C, d=D, out=e);
+    
+    DecoderSegmentF(a=A, b=B, c=C, d=D, out=f);
+    
+    DecoderSegmentG(a=A, b=B, c=C, d=D, out=g);
+}
