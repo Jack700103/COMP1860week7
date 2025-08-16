@@ -1,0 +1,13 @@
+CHIP Decoder201860766 {
+    IN A, B, C, D;
+    OUT a, b, c, d, e, f, g;
+
+    PARTS:
+        DecoderSegment42_a(A=A, B=B, C=C, D=D, out=a);
+        DecoderSegment42_b(A=A, B=B, C=C, D=D, out=b);
+        DecoderSegment42_c(A=A, B=B, C=C, D=D, out=c);
+        DecoderSegment42_d(A=A, B=B, C=C, D=D, out=d);
+        DecoderSegment42_e(A=A, B=B, C=C, D=D, out=e);
+        DecoderSegment42_f(A=A, B=B, C=C, D=D, out=f);
+        DecoderSegment42_g(A=A, B=B, C=C, D=D, out=g);
+}
