@@ -1,3 +1,36 @@
+/**
+ * 7-Segment Decoder for Segment 'c'
+ * Student ID: 201860766
+ * Group: 33
+ * Group Code: 5423106
+ * 
+ * Inputs: A, B, C, D (4-bit binary input, A=LSB, D=MSB)
+ * Output: c (segment control, 1=on, 0=off)
+ * 
+ * Truth Table:
+ * D C B A | Hex | c
+ * --------|-----|---
+ * 0 0 0 0 |  0  | 1
+ * 0 0 0 1 |  1  | 1
+ * 0 0 1 0 |  2  | 0
+ * 0 0 1 1 |  3  | 1
+ * 0 1 0 0 |  4  | 1
+ * 0 1 0 1 |  5  | 1
+ * 0 1 1 0 |  6  | 1
+ * 0 1 1 1 |  7  | 1
+ * 1 0 0 0 |  8  | 1
+ * 1 0 0 1 |  9  | 1
+ * 1 0 1 0 |  A  | 1
+ * 1 0 1 1 |  B  | 1
+ * 1 1 0 0 |  C  | 0
+ * 1 1 0 1 |  D  | 1
+ * 1 1 1 0 |  E  | 0
+ * 1 1 1 1 |  F  | 0
+ * 
+ * Boolean Equation:
+ * c = ~[ (¬D ∧ ¬C ∧ B ∧ ¬A) ∨ (D ∧ C ∧ (B ∨ ¬A)) ]
+ */
+
 CHIP DecoderSegment201860766 {
     IN A, B, C, D;
     OUT c;
@@ -7,16 +40,16 @@ CHIP DecoderSegment201860766 {
     Not(in=A, out=notA);
     Not(in=D, out=notD);
     Not(in=C, out=notC);
-    
+
     And(a=notD, b=notC, out=w1);
     And(a=w1, b=B, out=w2);
     And(a=w2, b=notA, out=term1);
-    
+
     Or(a=B, b=notA, out=B_or_notA);
     And(a=D, b=C, out=D_and_C);
     And(a=D_and_C, b=B_or_notA, out=term2);
-    
+
     Or(a=term1, b=term2, out=orTerms);
-    
+
     Not(in=orTerms, out=c);
 }
